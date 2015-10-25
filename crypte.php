@@ -4,19 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="title" content="TWL2.0" />
+<meta name="title" content="TWL2" />
 <meta name="author" content="Zeraw" />
-<meta name="owner" content="zerawmaster@ifrance.com" />
-<meta name="subject" content="Cryptage et Décryptage du TWL2.0" />
+<meta name="owner" content="zerawmaster@gmail.com" />
+<meta name="subject" content="Cryptage et Décryptage du TWL2" />
 <meta name="rating" content="Informatique" />
-<meta name="description" content="Décrypter et crypter en TWL2.0 grâce à ce site extrêment rapide ! Améliorez votre expérience utilisateur en utilisant le raccourci intelligent !" />
-<meta name="abstract" content="Décrypter et crypter en TWL2.0 grâce à ce site extrêment rapide ! Améliorez votre expérience utilisateur en utilisant le raccourci intelligent ! Thiweb Live en ligne, en mieux !" />
-<meta name="keywords" content="twl2.0, thiweb, thiweblive, twl, zeraw, zerawmaster, cryptage, decryptage, bookmarklet" />
+<meta name="description" content="Décrypter et crypter en TWL2 grâce à ce site extrêment rapide ! Améliorez votre expérience utilisateur en utilisant le raccourci intelligent !" />
+<meta name="abstract" content="Décrypter et crypter en TWL2 grâce à ce site extrêment rapide ! Améliorez votre expérience utilisateur en utilisant le raccourci intelligent ! Thiweb Live en ligne, en mieux !" />
+<meta name="keywords" content="twl2, thiweb, thiweblive, twl, zeraw, zerawmaster, cryptage, decryptage, bookmarklet" />
 <meta name="revisit-after" content="20 DAYS" />
 <meta name="language" content="FR" />
-<meta name="robots" content="None" />
+<meta name="robots" content="No Follow" />
 <link rel="icon" type="image/ico" href="favicon.png" />
-<title>TWL 2.0</title>
+<title>TWL2</title>
 <script src="accordion.js" type="text/javascript"></script>
 <script src="scripts.js" type="text/javascript"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -24,7 +24,7 @@
 
 <body>
 <div id="corps">
-  <div id="titre"><a href="index.php"><img src="images/titre.png" alt="TWL 2.0" width="180" height="25" /></a></div>
+  <div id="titre"><a href="index.php"><img src="images/titre.png" alt="TWL2" width="136" height="25" /></a></div>
   <div id="Accordion" class="Accordion">
     <div class="AccordionPanel">
       <div class="AccordionPanelTab">R&eacute;sultat du cryptage</div>

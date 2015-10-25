@@ -1,6 +1,6 @@
 <?php
 
-function code($decoded, $version = "TWL2.2") {
+function code($decoded, $version = "TWL2.3") {
 
 	$hexrev = strtoupper(strrev(bin2hex(stripslashes($decoded))));
 	
@@ -8,7 +8,7 @@ function code($decoded, $version = "TWL2.2") {
 		$hexrev = str_replace("A0D0", "AD", $hexrev);
 	}
 
-	$coded = wordwrap("TWL2.2".$hexrev, 65 ," ", 1);
+	$coded = wordwrap("TWL2.3".$hexrev, 65 ," ", 1);
 
 	return $coded;
 
@@ -23,7 +23,7 @@ function decode($coded, $html = true, $convertLinks = true) {
 
 	$header = substr($coded, 0, 6);
 
-	if ($header == "TWL2.0" || $header == "TWL2.2") {
+	if ($header == "TWL2.0" || $header == "TWL2.2" || $header == "TWL2.3") {
 		$coded = substr($coded, 6);
 
 		if ($header == "TWL2.0") {
@@ -43,22 +43,34 @@ function decode($coded, $html = true, $convertLinks = true) {
 			// NB : this "for loop" is equivalent to this : str_replace("AD", "A0D0", $coded); with the difference that it observes the characters 2 by 2. Therefore, XXADXX will give XXA0D0XX in both case, but XADXXX will give XA0D0XXX in the first case, which is not wanted, and stay XADXXX with the "for loop"
 		}
 
-		$coded = strrev($coded);
-		$decoded = hex2ascii($coded);
-		//echo "<p>phase 5: ".$decoded."</p>";
+		$decoded = hex2bin(strrev($coded));
+		//echo "\r\nphase 5: ".$decoded."\r\n";
+
+		// When Ghostly has realeased live.thiweb.com, he has decided to use a "TWL2.2" encoding which is different from the one I created... 
+		// So there is now lot of bugs in the forum, and I have to create this "patch" to correct the "Ghoslty TWL2.2"
+		// And that's why I create the TWL2.3 which is supposed to be not "bugged"
+		if ($header == "TWL2.2") {
+			if(empty(iconv("utf-8", "utf-8//IGNORE", $decoded))) {
+				$decoded = utf8_encode($decoded);
+				//echo "\r\nphase 6: ".$decoded."\r\n";
+			}
+		}
+
 		if ($html) 
 			$decoded = htmlentities($decoded);
-		//echo "phase 6: ".$decoded;
+		//echo "\r\nphase 7: ".$decoded."\r\n";
 		//$decoded = str_replace("&Uacute;", "<br />", $decoded);
 		if ($html && $convertLinks) 
 			//$decoded = preg_replace("/([[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/])/i",'<a href="$1" target="blank">$1</a>', $decoded);
-			$decoded = preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $decoded);
+			//$decoded = preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $decoded);
+			$decoded = preg_replace('@(\w+://[^ \t\r\n]+)@', '<a href="$1" target="_blank">$1</a>', $decoded);
 
 		if ($html) 
 			$decoded = nl2br($decoded);
-		//echo "phase 7: ".$decoded."</p>";
+		//echo "\r\nphase 8: ".$decoded."\r\n";
 
-		$decoded = iconv("utf-8", "utf-8//ignore", $decoded);
+		$decoded = iconv("utf-8", "utf-8//IGNORE", $decoded);
+		//echo "\r\nphase 9: ".$decoded."\r\n";
 
 		if (empty($decoded))
 			throw new Exception('Le décryptage a retourné une chaîne vide. Est-ce normal ?');
@@ -73,7 +85,10 @@ function decode($coded, $html = true, $convertLinks = true) {
 function hex2ascii($hex) {
 	$ascii = '';
 	for ($i=0; $i < strlen($hex); $i=$i+2) {
-		$ascii .= chr(hexdec(substr($hex, $i, 2)));
+		$chr = chr(hexdec(substr($hex, $i, 2)));
+		echo $chr;
+		//$chr = iconv("utf-8", "utf-8//ignore", $chr);
+		$ascii .= $chr;
 	}
 	return $ascii;
 }

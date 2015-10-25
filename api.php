@@ -38,7 +38,7 @@ else {
 			$response['action'] = 'decode';
 			$response['message'] = 'Vous semblez essayer de décrypter du TWL2.1 qui n\'est pas supporté.';
 		}	
-		else if ($header == "TWL2.0" || $header == "TWL2.2")
+		else if ($header == "TWL2.0" || $header == "TWL2.2" || $header == "TWL2.3")
 			$action = 'decode';
 		else 
 			$action = 'code';	
@@ -75,5 +75,7 @@ header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Max-Age: 86400'); 
 
 header('Content-Type: text/json; charset=utf-8');
+
+//print_r($response);
 
 echo json_encode($response, JSON_FORCE_OBJECT);
