@@ -16,6 +16,7 @@
 <meta name="language" content="FR" />
 <meta name="robots" content="No Follow" />
 <link rel="icon" type="image/ico" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TWL2</title>
 <script src="accordion.js" type="text/javascript"></script>
 <script src="scripts.js" type="text/javascript"></script>
@@ -23,8 +24,8 @@
 </head>
 
 <body>
-<div style="position: absolute; top: 0px; left: 0px; margin: 0px; padding: 0px;"><a href="divers.php"><img src="images/encore_plus.png" alt="Encore plus !" /></a></div>
-<div class="onglet-deroulant" style="position: absolute; top: 0px; right: 30px; margin: 0px; padding: 0px;">
+<div style="position: absolute; top: 0px; left: 0px; margin: 0px; padding: 0px;"><a href="divers.php"><img class="encore_plus" src="images/encore_plus.png" alt="Encore plus !" /></a></div>
+<!--<div class="onglet-deroulant" style="position: absolute; top: 0px; right: 30px; margin: 0px; padding: 0px;">
   <div class="contenu-onglet">
   	<p>Les userbars sont un tr&egrave;s bon moyen de faire d&eacute;courvir le site. Choisissez celle que vous voulez, et copiez/collez le texte fourni dans votre signature de forum.</p>
   	<p style="text-align:center"><img src="ub/?npc&amp;ub=userbar_1.gif" alt="Userbar num&eacute;ro 1" width="350" height="19" /><br />code &agrave; copier : 
@@ -36,7 +37,7 @@
     </p>
   </div>
   <div class="titre-onglet">Partager TWL2.0 avec les userbars</div>
-</div>
+</div>-->
 <div id="corps">
   <div id="titre"><img src="images/titre.png" alt="TWL2" width="136" height="25" /></div>
   <div id="Accordion" class="Accordion">
