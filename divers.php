@@ -43,11 +43,14 @@
     <div class="AccordionPanel">
       <div class="AccordionPanelTab">Remerciements </div>
       <div class="AccordionPanelContent">
-          <p>Je tiens &agrave; remercier Bernat, gr&acirc;ce &agrave; qui j'ai pu mettre la main sur l'algorithme utilis&eacute;.<br />
-            Je tiens aussi &agrave; remercier Thiweb, qui est d'une certaine mani&egrave;re &agrave; l'origine de ce site.<br />
-            Je tiens  &agrave; remercier Redna, qui est lui &agrave; l'origine du logciel thiweblive. <br />
-            Merci aussi &agrave; Montesquieu, qui promeut le site en m&ecirc;me temps que le logiciel.<br /> 
-            Je tiens enfin &agrave; remercier les nombreux beta testeurs qui se sont sympathiquement propos&eacute;s pour m'aider dans l'am&eacute;lioration du site : E-llas, Cowboy, Imageek, MickaelRivierra, Popeye et MisterBlack.</p>
+          <p>Bernat, grâce à qui j'ai obtenu la première version de l'algorithme.<br />
+            Thiweb, qui est d'une certaine manière à l'origine de cet outil.<br />
+            Redna, auteur du logiciel original.<br />
+            Montesquieu, qui en le promouvant a fait de cet outil la référence.<br />
+            E-llas, Cowboy, Imageek, MickaelRivierra, Popeye et MisterBlack, qui furent les bêta-testeurs du bookmarklet.<br />
+            Ghostly, à qui je confie le projet en 2016 après 8 ans.<br />
+            AronA, qui modernise avec Ghostly le design.
+          </p>
       </div>
     </div>
   </div>
