@@ -43,7 +43,9 @@ function decode($coded, $html = true, $convertLinks = true) {
 			// NB : this "for loop" is equivalent to this : str_replace("AD", "A0D0", $coded); with the difference that it observes the characters 2 by 2. Therefore, XXADXX will give XXA0D0XX in both case, but XADXXX will give XA0D0XXX in the first case, which is not wanted, and stay XADXXX with the "for loop"
 		}
 
-		$decoded = hex2bin(strrev($coded));
+		// The only goal of this check is to avoid any warning from hex2bin, who also lead to errors with the ext
+		if(ctype_xdigit($coded) && strlen($coded) %2 === 0)
+			$decoded = hex2bin(strrev($coded));
 		//echo "\r\nphase 5: ".$decoded."\r\n";
 
 		// When Ghostly has realeased live.thiweb.com, he has decided to use a "TWL2.2" encoding which is different from the one I created... 
