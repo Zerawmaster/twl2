@@ -1,0 +1,171 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ThiWeb Live",
+		"_postman_id": "164184fd-119f-0517-b8a0-6f16d8b397dc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Code / Decode",
+			"description": "Code / Decode related",
+			"item": [
+				{
+					"name": "Code",
+					"request": {
+						"url": {
+							"raw": "https://live.thiweb.com/api.php?code&str=Test1234",
+							"protocol": "https",
+							"host": [
+								"live",
+								"thiweb",
+								"com"
+							],
+							"path": [
+								"api.php"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "",
+									"equals": false,
+									"description": ""
+								},
+								{
+									"key": "str",
+									"value": "Test1234",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "Encode passed string to TWL2.3"
+					},
+					"response": []
+				},
+				{
+					"name": "Decode",
+					"request": {
+						"url": {
+							"raw": "https://live.thiweb.com/api.php?decode&str=TWL2.34333231347375645",
+							"protocol": "https",
+							"host": [
+								"live",
+								"thiweb",
+								"com"
+							],
+							"path": [
+								"api.php"
+							],
+							"query": [
+								{
+									"key": "decode",
+									"value": "",
+									"equals": false,
+									"description": ""
+								},
+								{
+									"key": "str",
+									"value": "TWL2.34333231347375645",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "Decode passed string to TWL2.3"
+					},
+					"response": []
+				},
+				{
+					"name": "Decode multiple",
+					"request": {
+						"url": {
+							"raw": "https://live.thiweb.com/api.php?decodeMultiple&str=TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645",
+							"protocol": "https",
+							"host": [
+								"live",
+								"thiweb",
+								"com"
+							],
+							"path": [
+								"api.php"
+							],
+							"query": [
+								{
+									"key": "decodeMultiple",
+									"value": "",
+									"equals": false,
+									"description": ""
+								},
+								{
+									"key": "str",
+									"value": "TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "Decode multiple encoded strings separated by \",\" to TWL2.3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Posts",
+					"request": {
+						"url": {
+							"raw": "https://live.thiweb.com/api.php?posts&str=Ghostfly",
+							"protocol": "https",
+							"host": [
+								"live",
+								"thiweb",
+								"com"
+							],
+							"path": [
+								"api.php"
+							],
+							"query": [
+								{
+									"key": "posts",
+									"value": "",
+									"equals": false,
+									"description": ""
+								},
+								{
+									"key": "str",
+									"value": "Ghostfly",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "Get number of posts of an user"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
