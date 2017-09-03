@@ -13,9 +13,21 @@
 			"item": [
 				{
 					"name": "Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Should return specified code\"] = data.message === \"TWL2.3D6F646E61627\";"
+								]
+							}
+						}
+					],
 					"request": {
 						"url": {
-							"raw": "https://live.thiweb.com/api.php?code&str=Test1234",
+							"raw": "https://live.thiweb.com/api.php?code&str=random",
 							"protocol": "https",
 							"host": [
 								"live",
@@ -30,13 +42,13 @@
 									"key": "code",
 									"value": "",
 									"equals": false,
-									"description": ""
+									"description": "Action"
 								},
 								{
 									"key": "str",
-									"value": "Test1234",
+									"value": "random",
 									"equals": true,
-									"description": ""
+									"description": "String to code"
 								}
 							],
 							"variable": []
@@ -46,13 +58,131 @@
 						"body": {},
 						"description": "Encode passed string to TWL2.3"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "49d15db4-ab7e-4c97-bcec-3cf009326cd6",
+							"name": "Success",
+							"originalRequest": {
+								"url": {
+									"raw": "https://live.thiweb.com/api.php?code&str=random",
+									"protocol": "https",
+									"host": [
+										"live",
+										"thiweb",
+										"com"
+									],
+									"path": [
+										"api.php"
+									],
+									"query": [
+										{
+											"key": "code",
+											"value": "",
+											"equals": false,
+											"description": "Action"
+										},
+										{
+											"key": "str",
+											"value": "random",
+											"equals": true,
+											"description": "String to code"
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [],
+								"body": {}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true",
+									"name": "Access-Control-Allow-Credentials",
+									"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400",
+									"name": "Access-Control-Max-Age",
+									"description": "Indicates how long the results of a preflight request can be cached in seconds."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Sep 2017 03:38:37 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PleskLin",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"responseTime": 252,
+							"body": "{\"status\":\"success\",\"action\":\"code\",\"message\":\"TWL2.3D6F646E61627\"}"
+						}
+					]
 				},
 				{
 					"name": "Decode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Should return random\"] = data.message.html === \"random\";"
+								]
+							}
+						}
+					],
 					"request": {
 						"url": {
-							"raw": "https://live.thiweb.com/api.php?decode&str=TWL2.34333231347375645",
+							"raw": "https://live.thiweb.com/api.php?decode&str=TWL2.3D6F646E61627",
 							"protocol": "https",
 							"host": [
 								"live",
@@ -67,13 +197,13 @@
 									"key": "decode",
 									"value": "",
 									"equals": false,
-									"description": ""
+									"description": "Action"
 								},
 								{
 									"key": "str",
-									"value": "TWL2.34333231347375645",
+									"value": "TWL2.3D6F646E61627",
 									"equals": true,
-									"description": ""
+									"description": "TWL to decode"
 								}
 							],
 							"variable": []
@@ -83,10 +213,128 @@
 						"body": {},
 						"description": "Decode passed string to TWL2.3"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "bb1d4de6-d597-4484-9d0e-7e30dc525e0a",
+							"name": "Success",
+							"originalRequest": {
+								"url": {
+									"raw": "https://live.thiweb.com/api.php?decode&str=TWL2.3D6F646E61627",
+									"protocol": "https",
+									"host": [
+										"live",
+										"thiweb",
+										"com"
+									],
+									"path": [
+										"api.php"
+									],
+									"query": [
+										{
+											"key": "decode",
+											"value": "",
+											"equals": false,
+											"description": "Action"
+										},
+										{
+											"key": "str",
+											"value": "TWL2.3D6F646E61627",
+											"equals": true,
+											"description": "TWL to decode"
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [],
+								"body": {}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true",
+									"name": "Access-Control-Allow-Credentials",
+									"description": ""
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": ""
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400",
+									"name": "Access-Control-Max-Age",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Sep 2017 03:41:23 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PleskLin",
+									"name": "X-Powered-By",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"responseTime": 156,
+							"body": "{\"status\":\"success\",\"action\":\"decode\",\"message\":{\"html\":\"random\",\"raw\":\"random\"}}"
+						}
+					]
 				},
 				{
 					"name": "Decode multiple",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Should return Test1234 4 times\"] = data.message === \"Test1234,Test1234,Test1234,Test1234\";"
+								]
+							}
+						}
+					],
 					"request": {
 						"url": {
 							"raw": "https://live.thiweb.com/api.php?decodeMultiple&str=TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645",
@@ -104,13 +352,13 @@
 									"key": "decodeMultiple",
 									"value": "",
 									"equals": false,
-									"description": ""
+									"description": "Action"
 								},
 								{
 									"key": "str",
 									"value": "TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645",
 									"equals": true,
-									"description": ""
+									"description": "Codes separated by a comma"
 								}
 							],
 							"variable": []
@@ -120,7 +368,113 @@
 						"body": {},
 						"description": "Decode multiple encoded strings separated by \",\" to TWL2.3"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "8f7e4c81-a20b-4fca-a47a-4e948e431512",
+							"name": "Success",
+							"originalRequest": {
+								"url": {
+									"raw": "https://live.thiweb.com/api.php?decodeMultiple&str=TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645",
+									"protocol": "https",
+									"host": [
+										"live",
+										"thiweb",
+										"com"
+									],
+									"path": [
+										"api.php"
+									],
+									"query": [
+										{
+											"key": "decodeMultiple",
+											"value": "",
+											"equals": false,
+											"description": "Action"
+										},
+										{
+											"key": "str",
+											"value": "TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645",
+											"equals": true,
+											"description": "Codes separated by a comma"
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [],
+								"body": {}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true",
+									"name": "Access-Control-Allow-Credentials",
+									"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400",
+									"name": "Access-Control-Max-Age",
+									"description": "Indicates how long the results of a preflight request can be cached in seconds."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Sep 2017 03:42:41 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PleskLin",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"responseTime": 326,
+							"body": "{\"status\":\"success\",\"action\":\"decodeMultiple\",\"message\":\"Test1234,Test1234,Test1234,Test1234\",\"coded\":\"TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645,TWL2.34333231347375645\"}"
+						}
+					]
 				}
 			]
 		},
@@ -130,6 +484,19 @@
 			"item": [
 				{
 					"name": "Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Should return username\"] = data.username === \"Ghostfly\";",
+									"tests[\"Should return correct message number\"] = data.message >= 1299;"
+								]
+							}
+						}
+					],
 					"request": {
 						"url": {
 							"raw": "https://live.thiweb.com/api.php?posts&str=Ghostfly",
@@ -147,13 +514,13 @@
 									"key": "posts",
 									"value": "",
 									"equals": false,
-									"description": ""
+									"description": "Action"
 								},
 								{
 									"key": "str",
 									"value": "Ghostfly",
 									"equals": true,
-									"description": ""
+									"description": "Username"
 								}
 							],
 							"variable": []
@@ -163,7 +530,113 @@
 						"body": {},
 						"description": "Get number of posts of an user"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "b4e2ad59-0c6a-4d34-8b8c-b9cced4ecffa",
+							"name": "Success",
+							"originalRequest": {
+								"url": {
+									"raw": "https://live.thiweb.com/api.php?posts&str=Zeraw",
+									"protocol": "https",
+									"host": [
+										"live",
+										"thiweb",
+										"com"
+									],
+									"path": [
+										"api.php"
+									],
+									"query": [
+										{
+											"key": "posts",
+											"value": "",
+											"equals": false,
+											"description": ""
+										},
+										{
+											"key": "str",
+											"value": "Zeraw",
+											"equals": true,
+											"description": "Username"
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [],
+								"body": {}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true",
+									"name": "Access-Control-Allow-Credentials",
+									"description": ""
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": ""
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400",
+									"name": "Access-Control-Max-Age",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Sep 2017 03:43:39 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PleskLin",
+									"name": "X-Powered-By",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"responseTime": 78,
+							"body": "{\"status\":\"success\",\"action\":\"posts\",\"message\":132,\"username\":\"Zeraw\"}"
+						}
+					]
 				}
 			]
 		}
